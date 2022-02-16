@@ -30,7 +30,7 @@ h1 {
 
 #todo [type="text"] {
   font-size: 1rem;
-  padding: 0;
+  padding: 8px 0;
   width: 70%;
   border: 0;
   flex: 1;
@@ -65,12 +65,12 @@ button,
   padding: 0;
   width: 12px;
   height: 12px;
-  margin-right: 8px;
+  margin-right: 4px;
   color: gray;
 }
 
 .todo-add {
-  padding: 12px 10px;
+  padding: 4px 10px;
   border-bottom: 1px solid lightgray;
 }
 
@@ -84,12 +84,18 @@ button,
   padding: 0;
   transform: rotate(90deg);
   width: 18px;
-  margin-right: 8px;
+  margin-right: 4px;
   color: gray;
 }
 
 .todo-add input:first-child:focus-visible {
   outline: none;
+}
+
+.todo-list-empty {
+  text-align: center;
+  color: gray;
+  padding: 12px 10px !important;
 }
 
 .todo-list {
@@ -100,7 +106,7 @@ button,
 }
 
 .todo-list li {
-  padding: 12px 10px;
+  padding: 4px 10px;
   border-bottom: 1px solid lightgray;
 }
 

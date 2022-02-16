@@ -17,7 +17,7 @@ This app let you to set your own to-do list.
 
 ## Live Page
 
-[Page Link](https://helio3197.github.io/to-do-list)
+[Page Link](https://helio3197.github.io/to-do-list/dist/index.html)
 
 
 ## Getting Started
