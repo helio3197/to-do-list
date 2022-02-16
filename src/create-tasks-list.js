@@ -1,4 +1,4 @@
-import { removeTask } from './task-list-features.js';
+import { removeTask, editTask } from './task-list-features.js';
 
 const todoList = document.getElementById('todo-list');
 
@@ -23,11 +23,22 @@ const createTodo = (list, tasksNode = todoList) => {
       checkbox.click();
     }
 
-    li.querySelector('[type="text"]').addEventListener('click', () => {
+    const descriptionField = li.querySelector('[type="text"]');
+
+    li.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      li.click();
+      descriptionField.blur();
+    });
+
+    descriptionField.addEventListener('input', () => {
+      editTask(list, descriptionField.value, li.id - 1);
+    });
+
+    descriptionField.addEventListener('click', () => {
       const trashButton = li.querySelector('button');
       trashButton.className = 'fas fa-trash-alt';
       trashButton.addEventListener('click', (e) => {
-        // console.log("run")
         e.stopImmediatePropagation();
         const newList = removeTask(list, li.id - 1);
         if (newList.length !== 0) {

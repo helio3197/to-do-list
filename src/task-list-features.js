@@ -20,4 +20,11 @@ const removeTask = (list, index) => {
   return list;
 };
 
-export { addTask, removeTask };
+const editTask = (list, value, index) => {
+  list[index].description = value;
+  localStorage.setItem('taskList', JSON.stringify(list));
+
+  return list;
+};
+
+export { addTask, removeTask, editTask };
