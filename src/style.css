@@ -30,7 +30,7 @@ h1 {
 
 #todo [type="text"] {
   font-size: 1rem;
-  padding: 0;
+  padding: 8px 0;
   width: 70%;
   border: 0;
   flex: 1;
@@ -70,7 +70,7 @@ button,
 }
 
 .todo-add {
-  padding: 12px 10px;
+  padding: 4px 10px;
   border-bottom: 1px solid lightgray;
 }
 
@@ -92,9 +92,10 @@ button,
   outline: none;
 }
 
-.todo-list-empy {
+.todo-list-empty {
   text-align: center;
   color: gray;
+  padding: 12px 10px !important;
 }
 
 .todo-list {
@@ -105,7 +106,7 @@ button,
 }
 
 .todo-list li {
-  padding: 12px 10px;
+  padding: 4px 10px;
   border-bottom: 1px solid lightgray;
 }
 

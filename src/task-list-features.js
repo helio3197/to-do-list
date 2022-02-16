@@ -1,3 +1,5 @@
+import sortTaskList from './sort-taks-array.js';
+
 const addTask = (list, description) => {
   const newtask = {
     description,
@@ -10,8 +12,12 @@ const addTask = (list, description) => {
   return list;
 };
 
-const removeTask = () => {
+const removeTask = (list, index) => {
+  list.splice(index, 1);
+  list = sortTaskList(list);
+  localStorage.setItem('taskList', JSON.stringify(list));
 
+  return list;
 };
 
 export { addTask, removeTask };

@@ -2,13 +2,14 @@ import createTodo from './create-tasks-list.js';
 import { addTask } from './task-list-features.js';
 import './style.css';
 
-const todoList = document.getElementById('todo-list');
 const addTaskInput = document.getElementsByClassName('todo-add')[0];
 let taskList = [];
 
 if (localStorage.getItem('taskList')) {
   taskList = JSON.parse(localStorage.getItem('taskList'));
-  createTodo(taskList, todoList);
+  if (taskList.length !== 0) {
+    createTodo(taskList);
+  }
 }
 
 addTaskInput.addEventListener('submit', (e) => {
@@ -17,5 +18,5 @@ addTaskInput.addEventListener('submit', (e) => {
   e.target.elements['new-task'].value = '';
   taskList = addTask(taskList, value);
 
-  createTodo(taskList, todoList);
+  createTodo(taskList);
 });
