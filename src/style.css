@@ -1,3 +1,44 @@
 body {
-  background-color: bisque;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#todo {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+#todo > * {
+  display: flex;
+}
+
+.todo-header {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-add {
+
+}
+
+.todo-add input:first-child {
+  flex: 1;
+}
+
+.todo-list {
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list [type="text"]:focus-visible {
+  outline: none;
+}
+
+.todo-clear {
+
 }

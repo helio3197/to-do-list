@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-do List</title>
 </head>
 <body>
-    <h1>Hello webpack!</h1>
+  <h1>To-do List</h1>
+  <div>
+    <section id="todo">
+      <div class="todo-header">
+        <h1>Today's To Do</h1>
+        <button type="button">Refresh</button>
+      </div>
+      <form class="todo-add">
+        <input type="text"/>
+        <input type="submit"/>
+      </form>
+      <ul class="todo-list" id="todo-list">
+      </ul>
+      <button type="button" class="todo-clear">Clear all completed</button>
+    </section>
+  </div>
 </body>
 </html>
