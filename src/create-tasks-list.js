@@ -17,6 +17,17 @@ const createTodo = (list, tasksNode) => {
       const checkbox = document.querySelectorAll('#todo-list [type="checkbox"]')[index];
       checkbox.click();
     }
+
+    li.querySelector('[type="text"]').addEventListener('focus', () => {
+      const trashButton = li.querySelector('button');
+      trashButton.className = 'fas fa-trash-alt';
+      trashButton.addEventListener('click', () => {
+
+      });
+    });
+    li.querySelector('[type="text"]').addEventListener('blur', () => {
+      li.querySelector('button').className = 'fas fa-ellipsis-v';
+    });
   });
 };
 

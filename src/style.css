@@ -65,7 +65,7 @@ button,
   padding: 0;
   width: 12px;
   height: 12px;
-  margin-right: 8px;
+  margin-right: 4px;
   color: gray;
 }
 
@@ -84,12 +84,17 @@ button,
   padding: 0;
   transform: rotate(90deg);
   width: 18px;
-  margin-right: 8px;
+  margin-right: 4px;
   color: gray;
 }
 
 .todo-add input:first-child:focus-visible {
   outline: none;
+}
+
+.todo-list-empy {
+  text-align: center;
+  color: gray;
 }
 
 .todo-list {
