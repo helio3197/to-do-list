@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-do List</title>
+  <script src="https://kit.fontawesome.com/4f5822c69a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Hello webpack!</h1>
+  <h1>To-do List</h1>
+  <div class="main-wrapper">
+    <section id="todo">
+      <div class="todo-header">
+        <h2>Today's To Do</h2>
+        <button type="button" class="fas fa-sync-alt"></button>
+      </div>
+      <form class="todo-add">
+        <input type="text" placeholder="Add to your list..."/>
+        <button type="submit" class="fas fa-level-down-alt"></button>
+      </form>
+      <ul class="todo-list" id="todo-list">
+      </ul>
+      <button type="button" class="todo-clear">Clear all completed</button>
+    </section>
+  </div>
 </body>
 </html>
