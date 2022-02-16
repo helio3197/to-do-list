@@ -4,10 +4,10 @@ const createTodo = (list, tasksNode) => {
   list.forEach((item, index) => {
     const li = document.createElement('li');
     li.innerHTML = `
-    <form>
+    <form class="todo-item">
       <input type="checkbox">
       <input type="text" value=${item.description}>
-      <button type="button"></button>
+      <button type="button" class="fas fa-ellipsis-v"></button>
     </form>
     `;
 

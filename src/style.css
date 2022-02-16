@@ -1,44 +1,131 @@
 body {
   box-sizing: border-box;
   margin: 0;
+  background-color: #f2f2f2;
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.main-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0 6px;
 }
 
 #todo {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  background-color: white;
+  border: 1px solid lightgray;
+  box-shadow: 0 0.3rem 1rem rgb(0 0 0 / 15%);
+  width: 500px;
 }
 
 #todo > * {
   display: flex;
 }
 
+#todo [type="text"] {
+  font-size: 1rem;
+  padding: 0;
+  width: 70%;
+  border: 0;
+  flex: 1;
+}
+
+#todo [type="text"]:focus-visible {
+  outline: none;
+}
+
+button,
+[type="submit"],
+[type="checkbox"] {
+  cursor: pointer;
+}
+
 .todo-header {
   align-items: center;
   justify-content: space-between;
+  padding: 12px 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.todo-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.todo-header button {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  color: gray;
 }
 
 .todo-add {
-
+  padding: 12px 10px;
+  border-bottom: 1px solid lightgray;
 }
 
-.todo-add input:first-child {
-  flex: 1;
+.todo-add :first-child {
+  font-style: italic;
+}
+
+.todo-add :last-child {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  transform: rotate(90deg);
+  width: 18px;
+  margin-right: 8px;
+  color: gray;
+}
+
+.todo-add input:first-child:focus-visible {
+  outline: none;
 }
 
 .todo-list {
   flex-direction: column;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.todo-list [type="text"]:focus-visible {
-  outline: none;
+.todo-list li {
+  padding: 12px 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item :first-child {
+  margin: 0 10px 0 0;
+  border: 2px solid gray;
+}
+
+.todo-item :last-child {
+  margin-left: 12px;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  color: gray;
 }
 
 .todo-clear {
-
+  border: 0;
+  padding: 12px 10px;
+  font-size: 1rem;
+  justify-content: center;
+  color: gray;
 }
