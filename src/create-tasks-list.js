@@ -1,11 +1,12 @@
 import { removeTask, editTask } from './task-list-features.js';
+import checkoutTask from './checkbox-interaction.js';
 
 const todoList = document.getElementById('todo-list');
 
 const createTodo = (list, tasksNode = todoList) => {
   tasksNode.innerHTML = '';
 
-  list.forEach((item, index) => {
+  list.forEach((item) => {
     const li = document.createElement('li');
     li.id = `${item.index}`;
     li.innerHTML = `
@@ -18,10 +19,15 @@ const createTodo = (list, tasksNode = todoList) => {
 
     tasksNode.appendChild(li);
 
+    const checkbox = li.querySelector('[type="checkbox"]');
+
     if (item.completed) {
-      const checkbox = document.querySelectorAll('#todo-list [type="checkbox"]')[index];
-      checkbox.click();
+      checkbox.checked = true;
     }
+
+    checkbox.addEventListener('change', () => {
+      checkoutTask(list, checkbox.checked, li.id - 1);
+    });
 
     const descriptionField = li.querySelector('[type="text"]');
 
