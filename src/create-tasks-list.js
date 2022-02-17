@@ -1,9 +1,15 @@
 import { removeTask, editTask } from './task-list-features.js';
-import checkoutTask from './checkbox-interaction.js';
+import { checkoutTask } from './checkbox-interaction.js';
 
 const todoList = document.getElementById('todo-list');
 
 const createTodo = (list, tasksNode = todoList) => {
+  if (list.length === 0) {
+    tasksNode.innerHTML = '<li class="todo-list-empty">There are no tasks to do!</li>';
+
+    return false;
+  }
+
   tasksNode.innerHTML = '';
 
   list.forEach((item) => {
@@ -47,11 +53,8 @@ const createTodo = (list, tasksNode = todoList) => {
       trashButton.addEventListener('click', (e) => {
         e.stopImmediatePropagation();
         const newList = removeTask(list, li.id - 1);
-        if (newList.length !== 0) {
-          createTodo(newList);
-        } else {
-          tasksNode.innerHTML = '<li class="todo-list-empty">There are no tasks to do!</li>';
-        }
+
+        createTodo(newList);
       });
       window.addEventListener('click', (e) => {
         if (e.target !== li.querySelector('button') && e.target !== li.querySelector('[type="text"]')) {
@@ -60,6 +63,8 @@ const createTodo = (list, tasksNode = todoList) => {
       });
     });
   });
+
+  return list;
 };
 
 export { createTodo as default };
