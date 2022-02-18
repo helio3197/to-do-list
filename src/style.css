@@ -103,11 +103,13 @@ button,
   list-style: none;
   padding: 0;
   margin: 0;
+  background-color: #dadada;
 }
 
 .todo-list li {
   padding: 4px 10px;
   border-bottom: 1px solid lightgray;
+  background-color: white;
 }
 
 .todo-item {
@@ -126,6 +128,14 @@ button,
   background-color: transparent;
   padding: 0;
   color: gray;
+}
+
+.todo-item :last-child:hover {
+  cursor: move;
+}
+
+.fa-trash-alt:hover {
+  cursor: pointer !important;
 }
 
 .todo-clear {
