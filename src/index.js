@@ -18,7 +18,9 @@ addTaskInput.addEventListener('submit', (e) => {
   const { value } = e.target.elements['new-task'];
   e.target.elements['new-task'].value = '';
 
-  taskList = getListFromStorage();
+  if (localStorage.getItem('taskList')) {
+    taskList = getListFromStorage();
+  }
   taskList = addTask(taskList, value);
 
   createTodo(taskList);
