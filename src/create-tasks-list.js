@@ -1,6 +1,6 @@
 import { removeTask, editTask } from './task-list-features.js';
 import { checkoutTask } from './checkbox-interaction.js';
-import dragTask from './drag-tasks.js';
+import { dragTask, dragTaskTouch } from './drag-tasks.js';
 
 const todoList = document.getElementById('todo-list');
 
@@ -56,9 +56,17 @@ const createTodo = (list, tasksNode = todoList) => {
     };
     trashMoveButton.addEventListener('mousedown', dragStart);
 
+    const dragStartTouch = (e) => {
+      e.preventDefault();
+      dragTaskTouch(e, li, list, createTodo);
+    };
+    trashMoveButton.addEventListener('touchstart', dragStartTouch);
+
     descriptionField.addEventListener('click', () => {
       trashMoveButton.removeEventListener('mousedown', dragStart);
+      trashMoveButton.removeEventListener('touchstart', dragStartTouch);
       trashMoveButton.className = 'fas fa-trash-alt';
+      li.className = 'todo-item-select';
       const trashButtonFunc = (e) => {
         e.stopImmediatePropagation();
         const newList = removeTask(list, li.id - 1);
@@ -70,7 +78,9 @@ const createTodo = (list, tasksNode = todoList) => {
         if (e.target !== trashMoveButton && e.target !== li.querySelector('[type="text"]')) {
           trashMoveButton.removeEventListener('click', trashButtonFunc);
           trashMoveButton.className = 'fas fa-ellipsis-v';
+          li.className = '';
           trashMoveButton.addEventListener('mousedown', dragStart);
+          trashMoveButton.addEventListener('touchstart', dragStartTouch);
         }
       });
     });

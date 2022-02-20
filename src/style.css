@@ -34,6 +34,7 @@ h1 {
   width: 70%;
   border: 0;
   flex: 1;
+  background-color: transparent;
 }
 
 #todo [type="text"]:focus-visible {
@@ -115,6 +116,15 @@ button,
 .todo-item {
   display: flex;
   align-items: center;
+}
+
+.todo-item-select {
+  background-color: #e3e3e3 !important;
+}
+
+.todo-item-draging {
+  border: 2px solid rgb(121, 121, 121) !important;
+  padding: 2px 8px 3px !important;
 }
 
 .todo-item :first-child {
