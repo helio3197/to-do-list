@@ -1,4 +1,5 @@
 import localStorage from './__mocks__/localStorage.js';
+import sortTaskList from './sort-task-array.js';
 
 const addTask = (list, description) => {
   const newtask = {
@@ -8,6 +9,14 @@ const addTask = (list, description) => {
   };
   list.push(newtask);
   localStorage.setItem('taskList', JSON.stringify(list));
+
+  return list;
+};
+
+const removeTask = (list, index) => {
+  list.splice(index, 1);
+  list = sortTaskList(list);
+  localStorage.setItem('taskList', JSON.stringify(list));;
 
   return list;
 };
