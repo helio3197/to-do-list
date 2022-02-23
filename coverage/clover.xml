@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1645636086078" clover="3.2.0">
-  <project timestamp="1645636086078" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1645638526492" clover="3.2.0">
+  <project timestamp="1645638526492" name="All files">
+    <metrics statements="9" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="1" elements="12" coveredelements="6" complexity="0" loc="9" ncloc="9" packages="1" files="1" classes="1"/>
+    <file name="sort-task-array.js" path="/home/ivan/repos/Microverse/Module2/Helio/to-do-list/src/sort-task-array.js">
+      <metrics statements="9" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="6" count="0" type="stmt"/>
+      <line num="7" count="0" type="stmt"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+    </file>
   </project>
 </coverage>
