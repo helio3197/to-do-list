@@ -34,11 +34,11 @@ describe('Tests for the addTask function:', () => {
 });
 
 describe('Tests for the removeTask function:', () => {
-  test(`Test input: Calling removeTask(${filledArray},1) and running localStorage.getItem("taskList") should return "[]"`, () => {
-    expect(removeTask(filledArray, 1)).toStrictEqual('[]');
+  test(`Test input: Calling removeTask(${filledArray},0) and running localStorage.getItem("taskList") should return "[]"`, () => {
+    expect(removeTask(filledArray, 0)).toStrictEqual([]);
   });
 
-  test(`Testing Local Storage:Calling removeTask(${filledArray},1) and running localStorage.getItem("taskList") should return "[]"`, () => {
+  test(`Testing Local Storage:Calling removeTask(${filledArray},0) and running localStorage.getItem("taskList") should return "[]"`, () => {
     expect(localStorage.getItem('taskList')).toBe('[]');
   });
 });
