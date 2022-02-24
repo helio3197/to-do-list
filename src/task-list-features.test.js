@@ -21,6 +21,13 @@ const removeTask = (list, index) => {
   return list;
 };
 
+const editTask = (list, value, index) => {
+  list[index].description = value;
+  localStorage.setItem('taskList', JSON.stringify(list));
+
+  return list;
+};
+
 const filledArray = [{ description: 'New Test', completed: false, index: 1 }];
 
 describe('Tests for the addTask function:', () => {
@@ -40,5 +47,11 @@ describe('Tests for the removeTask function:', () => {
 
   test(`Testing Local Storage:Calling removeTask(${filledArray},0) and running localStorage.getItem("taskList") should return "[]"`, () => {
     expect(localStorage.getItem('taskList')).toBe('[]');
+  });
+});
+
+describe('Tests for the editTask function:', () => {
+  test(`Test input: Calling editTask(${filledArray}, 'New Test EDITED', 0) should return [{ description: 'New Test EDITED', completed: false, index: 1 }]`, () => {
+    expect(editTask(filledArray, 'New Test EDITED', 0)).toStrictEqual([{ description: 'New Test EDITED', completed: false, index: 1 }]);
   });
 });
