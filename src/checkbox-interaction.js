@@ -3,7 +3,8 @@ import sortTaskList from './sort-task-array.js';
 
 const checkoutTask = (list, value, index) => {
   list[index].completed = value;
-  localStorage.setItem('taskList', JSON.stringify(list));
+  saveListToStorage(list);
+  return list;
 };
 
 const clearCompletedTasks = (list) => {
