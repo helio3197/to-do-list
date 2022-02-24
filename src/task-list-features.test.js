@@ -28,10 +28,9 @@ const editTask = (list, value, index) => {
   return list;
 };
 
-const filledArray = [{ description: 'New Test', completed: false, index: 1 }];
-
 describe('Tests for the addTask function:', () => {
-  test(`Test input: Calling addTask([], "New Test") should return ${filledArray}`, () => {
+  const filledArray = [{ description: 'New Test', completed: false, index: 1 }];
+  test(`Test input: Calling addTask([], "New Test") should return ${JSON.stringify(filledArray)}`, () => {
     expect(addTask([], 'New Test')).toStrictEqual(filledArray);
   });
 
@@ -41,17 +40,22 @@ describe('Tests for the addTask function:', () => {
 });
 
 describe('Tests for the removeTask function:', () => {
-  test(`Test input: Calling removeTask(${filledArray},0) and running localStorage.getItem("taskList") should return "[]"`, () => {
+  const filledArray = [{ description: 'New Test', completed: false, index: 1 }];
+  test(`Test input: Calling removeTask( ${JSON.stringify(filledArray)},0) and running localStorage.getItem("taskList") should return "[]"`, () => {
     expect(removeTask(filledArray, 0)).toStrictEqual([]);
   });
 
-  test(`Testing Local Storage:Calling removeTask(${filledArray},0) and running localStorage.getItem("taskList") should return "[]"`, () => {
+  test(`Testing Local Storage: Calling removeTask( ${JSON.stringify(filledArray)},0) and running localStorage.getItem("taskList") should return "[]"`, () => {
     expect(localStorage.getItem('taskList')).toBe('[]');
   });
 });
 
 describe('Tests for the editTask function:', () => {
-  test(`Test input: Calling editTask(${filledArray}, 'New Test EDITED', 0) should return [{ description: 'New Test EDITED', completed: false, index: 1 }]`, () => {
+  const filledArray = [{ description: 'New Test', completed: false, index: 1 }];
+  test(`Test input: Calling editTask( ${JSON.stringify(filledArray)}, 'New Test EDITED', 0) should return [{ description: 'New Test EDITED', completed: false, index: 1 }]`, () => {
     expect(editTask(filledArray, 'New Test EDITED', 0)).toStrictEqual([{ description: 'New Test EDITED', completed: false, index: 1 }]);
+  });
+  test(`Testing Local Storage: Calling editTask(${JSON.stringify(filledArray)}, 'New Test EDITED', 0) and running localStorage.getItem("taskList") should return "[{ description: 'New Test EDITED', completed: false, index: 1 }]"`, () => {
+    expect(localStorage.getItem('taskList')).toBe('[{"description":"New Test EDITED","completed":false,"index":1}]');
   });
 });
