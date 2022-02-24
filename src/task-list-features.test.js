@@ -28,6 +28,12 @@ const editTask = (list, value, index) => {
   return list;
 };
 
+const checkoutTask = (list, value, index) => {
+  list[index].completed = value;
+  localStorage.setItem('taskList', JSON.stringify(list));
+  return list;
+};
+
 describe('Tests for the addTask function:', () => {
   const filledArray = [{ description: 'New Test', completed: false, index: 1 }];
   test(`Test input: Calling addTask([], "New Test") should return ${JSON.stringify(filledArray)}`, () => {
@@ -57,5 +63,15 @@ describe('Tests for the editTask function:', () => {
   });
   test(`Testing Local Storage: Calling editTask(${JSON.stringify(filledArray)}, 'New Test EDITED', 0) and running localStorage.getItem("taskList") should return "[{ description: 'New Test EDITED', completed: false, index: 1 }]"`, () => {
     expect(localStorage.getItem('taskList')).toBe('[{"description":"New Test EDITED","completed":false,"index":1}]');
+  });
+});
+
+describe('Test for the checkoutTask function:', () => {
+  const filledArray = [{ description: 'New Test', completed: false, index: 1 }];
+  test(`Test input: Calling checkoutTask(${JSON.stringify(filledArray)}, true, 0) should return "[{ description: 'New Test EDITED', completed: true, index: 1 }]"`, () => {
+    expect(checkoutTask(filledArray, true, 0)).toStrictEqual([{ description: 'New Test', completed: true, index: 1 }]);
+  });
+  test(`Testing Local Storage: Calling checkoutTask(${JSON.stringify(filledArray)}, true, 0) and running localStorage.getItem("taskList") should return "[{ description: 'New Test EDITED', completed: true, index: 1 }]"`, () => {
+    expect(localStorage.getItem('taskList')).toBe('[{"description":"New Test","completed":true,"index":1}]');
   });
 });

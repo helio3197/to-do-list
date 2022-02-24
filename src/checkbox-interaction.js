@@ -4,6 +4,7 @@ import sortTaskList from './sort-task-array.js';
 const checkoutTask = (list, value, index) => {
   list[index].completed = value;
   saveListToStorage(list);
+  return list;
 };
 
 const clearCompletedTasks = (list) => {
