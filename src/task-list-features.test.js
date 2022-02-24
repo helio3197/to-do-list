@@ -34,6 +34,14 @@ const checkoutTask = (list, value, index) => {
   return list;
 };
 
+const clearCompletedTasks = (list) => {
+  const filteredList = sortTaskList(list.filter((item) => !item.completed));
+
+  localStorage.setItem('taskList', JSON.stringify(filteredList));
+
+  return filteredList;
+};
+
 describe('Tests for the addTask function:', () => {
   const filledArray = [{ description: 'New Test', completed: false, index: 1 }];
   test(`Test input: Calling addTask([], "New Test") should return ${JSON.stringify(filledArray)}`, () => {
@@ -73,5 +81,15 @@ describe('Test for the checkoutTask function:', () => {
   });
   test(`Testing Local Storage: Calling checkoutTask(${JSON.stringify(filledArray)}, true, 0) and running localStorage.getItem("taskList") should return "[{ description: 'New Test EDITED', completed: true, index: 1 }]"`, () => {
     expect(localStorage.getItem('taskList')).toBe('[{"description":"New Test","completed":true,"index":1}]');
+  });
+});
+
+describe('Tests for the clearCompletedTasks Function:', () => {
+  const filledArray = [{ description: 'Old Test', completed: true, index: 1 }, { description: 'New Test', completed: true, index: 2 }];
+  test(`Test input: Calling clearCompletedTasks(${JSON.stringify(filledArray)}) should return "[]"`, () => {
+    expect(clearCompletedTasks(filledArray)).toStrictEqual([]);
+  });
+  test(`Testing Local Storage: Calling clearCompletedTasks(${JSON.stringify(filledArray)})and running localStorage.getItem("taskList") should return "[]"`, () => {
+    expect(localStorage.getItem('taskList')).toBe('[]');
   });
 });
