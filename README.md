@@ -14,6 +14,7 @@ This app let you to set your own to-do list.
 - CSS
 - JavaScript
 - WebPack
+- Jest
 
 ## Live Page
 
@@ -37,17 +38,25 @@ To get a local copy up and running follow these simple steps.
 
 - Use this command to get a copy:
 ```
-git clone git@github.com:helio3197/to-do-list.git
+$ git clone git@github.com:helio3197/to-do-list.git
 ```
 - Install the required dependencies:
 ```
-npm install
+$ npm install
 ```
 ### Usage
 
 - Run:
 ```
-npm start
+$ npm start
+```
+- Build:
+```
+$ npm run build
+```
+- Testing:
+```
+$ npm test
 ```
 - Edit the content as you like.
 
